@@ -1,7 +1,5 @@
-import {TaskIntro} from "@/components/organisms/TaskIntro";
+import { CharacterList } from '@/components/organisms/CharacterList';
 
-export default function Home() {
-    return (
-        <TaskIntro />
-    )
+export default async function Home() {
+  return <CharacterList />;
 }
