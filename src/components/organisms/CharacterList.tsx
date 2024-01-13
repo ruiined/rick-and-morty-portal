@@ -1,17 +1,16 @@
 'use client';
 
 import { useCharacters } from '@/hooks/useCharacters';
-import { Card, Grid, Header } from '../molecules';
+import { Card, Grid } from '../molecules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const CharacterList = () => {
   const { characters, count } = useCharacters();
 
   return (
-    <main className="flex flex-col">
-      <Header />
-
-      <p className="p-6">{count} alive characters</p>
+    <main className="flex flex-col p-8 gap-8">
+      <p>{count} alive characters</p>
 
       <Grid>
         {characters.map((character) => (
@@ -23,12 +22,16 @@ export const CharacterList = () => {
               width={300}
               height={300}
             />
-            <p>Name: {character.name}</p>
-            <p>Gender: {character.gender}</p>
-            <p>Species: {character.species}</p>
-            <button className="bg-slate-100 text-slate-800 p-2 w-full hover:text-slate-900 hover:bg-slate-200 transition duration-300">
-              View Profile
-            </button>
+            <div className="p-4">
+              <p>Name: {character.name}</p>
+              <p>Gender: {character.gender}</p>
+              <p>Species: {character.species}</p>
+            </div>
+            <Link href={`/${character.id}`}>
+              <button className="bg-slate-100 text-slate-800 p-2 w-full hover:text-slate-900 hover:bg-slate-200 transition duration-300">
+                View Profile
+              </button>
+            </Link>
           </Card>
         ))}
       </Grid>

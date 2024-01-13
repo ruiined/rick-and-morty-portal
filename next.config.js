@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['rickandmortyapi.com'],
+    remotePatterns: [{ hostname: 'rickandmortyapi.com' }],
   },
 };
 

@@ -13,6 +13,10 @@ export interface ICharacter extends ICharacterCore {
     episodes: IEpisode[];
 }
 
+export interface ICharacterWithImage extends ICharacter {
+    image: string;
+}
+
 export interface ILocation {
     id: number;
     name: string;
