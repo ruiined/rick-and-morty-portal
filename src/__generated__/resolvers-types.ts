@@ -17,8 +17,63 @@ export type Scalars = {
 
 export type Character = {
   __typename?: 'Character';
-  id?: Maybe<Scalars['Int']['output']>;
+  created?: Maybe<Scalars['String']['output']>;
+  episode: Array<Maybe<Episode>>;
+  gender?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Location>;
   name?: Maybe<Scalars['String']['output']>;
+  origin?: Maybe<Location>;
+  species?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+};
+
+export type Characters = {
+  __typename?: 'Characters';
+  info?: Maybe<Info>;
+  results?: Maybe<Array<Maybe<Character>>>;
+};
+
+export type Episode = {
+  __typename?: 'Episode';
+  air_date?: Maybe<Scalars['String']['output']>;
+  characters: Array<Maybe<Character>>;
+  created?: Maybe<Scalars['String']['output']>;
+  episode?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type Episodes = {
+  __typename?: 'Episodes';
+  info?: Maybe<Info>;
+  results?: Maybe<Array<Maybe<Episode>>>;
+};
+
+export type Info = {
+  __typename?: 'Info';
+  count?: Maybe<Scalars['Int']['output']>;
+  next?: Maybe<Scalars['Int']['output']>;
+  pages?: Maybe<Scalars['Int']['output']>;
+  prev?: Maybe<Scalars['Int']['output']>;
+};
+
+export type Location = {
+  __typename?: 'Location';
+  created?: Maybe<Scalars['String']['output']>;
+  dimension?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  residents: Array<Maybe<Character>>;
+  type?: Maybe<Scalars['String']['output']>;
+};
+
+export type Locations = {
+  __typename?: 'Locations';
+  info?: Maybe<Info>;
+  results?: Maybe<Array<Maybe<Location>>>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -95,7 +150,14 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Character: ResolverTypeWrapper<Character>;
+  Characters: ResolverTypeWrapper<Characters>;
+  Episode: ResolverTypeWrapper<Episode>;
+  Episodes: ResolverTypeWrapper<Episodes>;
+  ID: ResolverTypeWrapper<Scalars['ID']['output']>;
+  Info: ResolverTypeWrapper<Info>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  Location: ResolverTypeWrapper<Location>;
+  Locations: ResolverTypeWrapper<Locations>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
 }>;
 
@@ -103,17 +165,85 @@ export type ResolversTypes = ResolversObject<{
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean']['output'];
   Character: Character;
+  Characters: Characters;
+  Episode: Episode;
+  Episodes: Episodes;
+  ID: Scalars['ID']['output'];
+  Info: Info;
   Int: Scalars['Int']['output'];
+  Location: Location;
+  Locations: Locations;
   String: Scalars['String']['output'];
 }>;
 
 export type CharacterResolvers<ContextType = any, ParentType extends ResolversParentTypes['Character'] = ResolversParentTypes['Character']> = ResolversObject<{
-  id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  created?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  episode?: Resolver<Array<Maybe<ResolversTypes['Episode']>>, ParentType, ContextType>;
+  gender?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  location?: Resolver<Maybe<ResolversTypes['Location']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  origin?: Resolver<Maybe<ResolversTypes['Location']>, ParentType, ContextType>;
+  species?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  status?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type CharactersResolvers<ContextType = any, ParentType extends ResolversParentTypes['Characters'] = ResolversParentTypes['Characters']> = ResolversObject<{
+  info?: Resolver<Maybe<ResolversTypes['Info']>, ParentType, ContextType>;
+  results?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type EpisodeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Episode'] = ResolversParentTypes['Episode']> = ResolversObject<{
+  air_date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  characters?: Resolver<Array<Maybe<ResolversTypes['Character']>>, ParentType, ContextType>;
+  created?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  episode?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type EpisodesResolvers<ContextType = any, ParentType extends ResolversParentTypes['Episodes'] = ResolversParentTypes['Episodes']> = ResolversObject<{
+  info?: Resolver<Maybe<ResolversTypes['Info']>, ParentType, ContextType>;
+  results?: Resolver<Maybe<Array<Maybe<ResolversTypes['Episode']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type InfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['Info'] = ResolversParentTypes['Info']> = ResolversObject<{
+  count?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  next?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  pages?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  prev?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type LocationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Location'] = ResolversParentTypes['Location']> = ResolversObject<{
+  created?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  dimension?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  residents?: Resolver<Array<Maybe<ResolversTypes['Character']>>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type LocationsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Locations'] = ResolversParentTypes['Locations']> = ResolversObject<{
+  info?: Resolver<Maybe<ResolversTypes['Info']>, ParentType, ContextType>;
+  results?: Resolver<Maybe<Array<Maybe<ResolversTypes['Location']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
   Character?: CharacterResolvers<ContextType>;
+  Characters?: CharactersResolvers<ContextType>;
+  Episode?: EpisodeResolvers<ContextType>;
+  Episodes?: EpisodesResolvers<ContextType>;
+  Info?: InfoResolvers<ContextType>;
+  Location?: LocationResolvers<ContextType>;
+  Locations?: LocationsResolvers<ContextType>;
 }>;
 
