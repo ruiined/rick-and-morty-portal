@@ -11,15 +11,17 @@ export const CharacterList = () => {
     <main className="flex flex-col">
       <Header />
 
-      <p className="p-6">{count} characters</p>
+      <p className="p-6">{count} alive characters</p>
 
       <Grid>
         {characters.map((character) => (
           <Card key={character.id}>
             <Image
               className="w-full h-48 object-cover"
-              src={character.avatar}
+              src={character.image}
               alt={character.name}
+              width={300}
+              height={300}
             />
             <p>Name: {character.name}</p>
             <p>Gender: {character.gender}</p>

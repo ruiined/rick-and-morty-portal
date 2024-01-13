@@ -5,7 +5,10 @@ import { GET_CHARACTERS } from '@/lib/gql';
 import { ICharacter } from '@/types/types';
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 
-type UseCharacters = { characters: ICharacter[]; count: number };
+type UseCharacters = {
+  characters: (ICharacter & { image: string })[];
+  count: number;
+};
 
 export const useCharacters = (): UseCharacters => {
   const { data } = useSuspenseQuery<CharacterResolvers>(GET_CHARACTERS);
