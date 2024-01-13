@@ -1,11 +1,10 @@
 'use client';
-import { useCharacter, useCharacters } from '@/hooks/useCharacters';
-import { Card, Grid } from '../molecules';
+
+import { useCharacter } from '@/hooks/useCharacters';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const CharacterProfile = ({ id }: { id: string }) => {
-  // console.log(Number(id));
   const character = useCharacter(Number(id));
 
   if (!character) {
@@ -26,11 +25,17 @@ export const CharacterProfile = ({ id }: { id: string }) => {
         width={300}
         height={300}
       />
-      <div className="p-4">
-        <p>Name: {character.name}</p>
-        <p>Gender: {character.gender}</p>
-        <p>Species: {character.species}</p>
-      </div>
+      <h1 className="text-2xl">{character.name}</h1>
+      <p>Status: {character.status}</p>
+      <p>Origin: {character.origin.name}</p>
+
+      {Object.entries(character).map(([key, value]) => {
+        return (
+          <p key={key}>
+            {key}: {JSON.stringify(value)}
+          </p>
+        );
+      })}
     </div>
   );
 };
