@@ -1,6 +1,8 @@
 # Rick and Morty Portal (Tech Test)
 
-[![CI](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/ci.yml/badge.svg)](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/ci.yml)
+[![CI](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/CI.yml/badge.svg)](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/CI.yml)
+
+**🚀 [View](https://65a334d585c506209136d7e8--stunning-baklava-81ee73.netlify.app/)**
 
 ## The Challenge
 
