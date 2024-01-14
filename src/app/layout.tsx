@@ -21,7 +21,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ApolloWrapper>
           <Header />
-          {children}
+          <div className="absolute top-20 md:top-24 w-full">
+            <div className="flex flex-col justify-center items-center m-6 md:m-12">
+              {children}
+            </div>
+          </div>
         </ApolloWrapper>
       </body>
     </html>
