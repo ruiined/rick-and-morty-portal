@@ -12,8 +12,6 @@ type UseCharacters = {
   characters: ICharacterWithImage[];
   count: number;
   pages: number;
-  next: number;
-  prev: number;
 };
 
 export const useCharacters = (page: number): UseCharacters => {
