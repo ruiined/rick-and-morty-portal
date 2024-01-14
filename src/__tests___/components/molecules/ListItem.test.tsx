@@ -9,6 +9,6 @@ describe('ListItem', () => {
     render(<ListItem label={label} value={value} />);
     const listItemElement = screen.getByTestId('list-item');
     expect(listItemElement).toBeDefined();
-    expect(listItemElement).toHaveProperty('textContent', `${label}:${value}`);
+    expect(listItemElement).toHaveProperty('textContent', `${label}: ${value}`);
   });
 });
