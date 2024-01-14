@@ -1,4 +1,6 @@
-# Collagerie Fullstack Tech Test
+# Rick and Morty Portal (Tech Test)
+
+[![CI](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/ci.yml/badge.svg)](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/ci.yml)
 
 ## The Challenge
 
