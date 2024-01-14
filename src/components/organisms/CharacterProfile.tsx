@@ -24,14 +24,16 @@ export const CharacterProfile = ({ id }: { id: string }) => {
           &#8617; Go back
         </Link>
         <div className="w-full">
-          <div className="flex flex-col md:flex-row items-center gap-12 justify-center">
-            <Image
-              className="rounded-full object-cover mt-2 shadow-md"
-              src={image}
-              alt={name}
-              width={200}
-              height={200}
-            />
+          <div className="flex flex-col md:flex-row md:items-center gap-12">
+            <div className="flex justify-center">
+              <Image
+                className="rounded-full object-cover mt-2 shadow-mdr"
+                src={image}
+                alt={name}
+                width={200}
+                height={200}
+              />
+            </div>
             <div>
               <h1 className="text-2xl font-bold mb-2">{name}</h1>
               <List items={description} />

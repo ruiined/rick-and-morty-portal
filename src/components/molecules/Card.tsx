@@ -1,9 +1,6 @@
 export const Card = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div
-      className="w-48 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between"
-      data-testid="card"
-    >
+    <div className="md:w-48 rounded-lg shadow-lg flex flex-col justify-between">
       {children}
     </div>
   );

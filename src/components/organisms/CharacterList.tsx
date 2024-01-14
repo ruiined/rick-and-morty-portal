@@ -27,13 +27,13 @@ export const CharacterList = ({ page }: { page: number }) => {
           return (
             <Card key={character.id}>
               <Image
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover rounded-t-lg"
                 src={character.image}
                 alt={character.name}
                 width={300}
                 height={300}
               />
-              <div className="p-4 text-sm">
+              <div className="p-2 md:p-4 text-sm">
                 <List items={description} />
               </div>
               <Link href={`/${character.id}`}>

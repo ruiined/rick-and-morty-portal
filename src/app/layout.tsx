@@ -22,7 +22,7 @@ export default function RootLayout({
         <ApolloWrapper>
           <Header />
           <div className="absolute top-20 md:top-24 w-full">
-            <div className="flex flex-col justify-center items-center m-6 md:m-12">
+            <div className="flex flex-col justify-center items-center m-4 md:m-12">
               {children}
             </div>
           </div>
