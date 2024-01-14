@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCharacters } from '@/hooks/useCharacters';
-import { Card, Grid } from '../molecules';
+import { Card, Grid, List } from '../molecules';
 import { Button } from '../atoms/';
 
 export const CharacterList = () => {
@@ -16,25 +16,31 @@ export const CharacterList = () => {
       </p>
 
       <Grid>
-        {characters.map((character) => (
-          <Card key={character.id}>
-            <Image
-              className="w-full h-48 object-cover"
-              src={character.image}
-              alt={character.name}
-              width={300}
-              height={300}
-            />
-            <div className="p-4">
-              <p>Name: {character.name}</p>
-              <p>Gender: {character.gender}</p>
-              <p>Species: {character.species}</p>
-            </div>
-            <Link href={`/${character.id}`}>
-              <Button label="View Profile" />
-            </Link>
-          </Card>
-        ))}
+        {characters.map((character) => {
+          const description = [
+            ['Name', character.name],
+            ['Gender', character.gender],
+            ['Species', character.species],
+          ];
+
+          return (
+            <Card key={character.id}>
+              <Image
+                className="w-full h-48 object-cover"
+                src={character.image}
+                alt={character.name}
+                width={300}
+                height={300}
+              />
+              <div className="p-4 text-sm">
+                <List items={description} />
+              </div>
+              <Link href={`/${character.id}`}>
+                <Button label="View Profile" />
+              </Link>
+            </Card>
+          );
+        })}
       </Grid>
     </main>
   );

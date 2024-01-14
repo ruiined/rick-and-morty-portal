@@ -40,6 +40,9 @@ export const GET_CHARACTER = gql`
         name
         type
         dimension
+        residents {
+          id
+        }
       }
       image
       episode {
@@ -47,6 +50,9 @@ export const GET_CHARACTER = gql`
         name
         air_date
         episode
+        characters {
+          id
+        }
       }
     }
   }
