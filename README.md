@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/CI.yml/badge.svg)](https://github.com/ruiined/rick-and-morty-portal/actions/workflows/CI.yml)
 
-**🚀 [View](https://65a334d585c506209136d7e8--stunning-baklava-81ee73.netlify.app/)**
+#### **🚀 [View Live](https://65a334d585c506209136d7e8--stunning-baklava-81ee73.netlify.app/)**
 
 ## The Challenge
 

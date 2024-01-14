@@ -11,14 +11,20 @@ import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 type UseCharacters = {
   characters: ICharacterWithImage[];
   count: number;
+  pages: number;
+  next: number;
+  prev: number;
 };
 
-export const useCharacters = (): UseCharacters => {
-  const { data } = useSuspenseQuery<CharactersResolvers>(GET_CHARACTERS);
+export const useCharacters = (page: number): UseCharacters => {
+  const { data } = useSuspenseQuery<CharactersResolvers>(GET_CHARACTERS, {
+    variables: { page },
+  });
 
   return {
     characters: data?.characters?.results ?? [],
     count: data?.characters?.info?.count ?? 0,
+    pages: data?.characters?.info?.pages ?? 0,
   };
 };
 

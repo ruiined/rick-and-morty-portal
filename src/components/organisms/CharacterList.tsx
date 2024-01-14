@@ -5,16 +5,17 @@ import Link from 'next/link';
 import { useCharacters } from '@/hooks/useCharacters';
 import { Card, Grid, List } from '../molecules';
 import { Button } from '../atoms/';
+import { useRouter } from 'next/navigation';
 
-export const CharacterList = () => {
-  const { characters, count } = useCharacters();
+export const CharacterList = ({ page }: { page: number }) => {
+  const router = useRouter();
+  const { characters, count, pages } = useCharacters(page);
 
   return (
     <main>
       <p className="mb-16 md:mb-6 text-center text-slate-600">
         {count} alive characters
       </p>
-
       <Grid>
         {characters.map((character) => {
           const description = [
@@ -42,6 +43,18 @@ export const CharacterList = () => {
           );
         })}
       </Grid>
+      <div className="flex justify-center mt-6 md:mt-16">
+        <Button
+          label="Previous"
+          handleClick={() => router.push(`/?page=${page - 1}`)}
+          disabled={page === 1}
+        />
+        <Button
+          label="Next"
+          handleClick={() => router.push(`/?page=${page + 1}`)}
+          disabled={page === pages}
+        />
+      </div>
     </main>
   );
 };

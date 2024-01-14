@@ -10,8 +10,14 @@ describe('CharacterList', () => {
     };
   });
 
+  vi.mock('next/navigation', () => {
+    return {
+      useRouter: () => ({}),
+    };
+  });
+
   it('should render the character list component', () => {
-    render(<CharacterList />);
+    render(<CharacterList page={1} />);
 
     const countElement = screen.getByText('2 alive characters');
     const cardElements = screen.getAllByTestId('card');
