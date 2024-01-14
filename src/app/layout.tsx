@@ -7,8 +7,8 @@ import { Header } from '@/components/molecules';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Fullstack Tech Test',
-  description: 'Collagerie fullstack tech test',
+  title: 'Rick and Morty Portal',
+  description: 'Rick and Morty Character List',
 };
 
 export default function RootLayout({
