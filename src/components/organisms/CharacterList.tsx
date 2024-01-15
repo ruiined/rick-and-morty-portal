@@ -14,7 +14,7 @@ export const CharacterList = ({ page }: { page: number }) => {
   return (
     <main>
       <p className="mb-16 md:mb-6 text-center text-slate-600">
-        {count} alive characters
+        {count} alive morty characters
       </p>
       <Grid>
         {characters.map((character) => {

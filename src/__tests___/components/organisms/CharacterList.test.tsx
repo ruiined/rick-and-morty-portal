@@ -19,7 +19,7 @@ describe('CharacterList', () => {
   it('should render the character list component', () => {
     render(<CharacterList page={1} />);
 
-    const countElement = screen.getByText('2 alive characters');
+    const countElement = screen.getByText('2 alive Morty characters');
     const cardElements = screen.getAllByTestId('card');
 
     expect(countElement).toBeDefined();

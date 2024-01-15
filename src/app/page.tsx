@@ -6,6 +6,6 @@ export default async function Home({
   searchParams: { page: string };
 }) {
   const currentPage = Number(searchParams.page ?? 1);
-  console.log(currentPage);
+
   return <CharacterList page={currentPage} />;
 }
